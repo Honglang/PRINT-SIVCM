@@ -833,7 +833,8 @@ xbtest<-function(xnew,betahat,data,lambda,s,method="mrc",penalty="ALasso",betat=
   if(less==F){
     pvalue=pnorm(ndebias,sd=nsd)#test H0: xnew*beta>0
   }
-  result=list(pvalue,nsd,ndebias)
+  dt=Ainv%*%D
+  result=list(pvalue,nsd,ndebias,dt)
   return(result)
 }
 
